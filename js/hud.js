@@ -85,6 +85,7 @@ export function createHUD({ clock, bodies, onSelect, onToggle }) {
   els.sidebarToggle.addEventListener('click', () => els.sidebar.classList.toggle('collapsed'));
   const mobile = window.matchMedia('(max-width: 900px)');
   if (mobile.matches) els.sidebar.classList.add('collapsed');
+  mobile.addEventListener('change', (e) => { if (!e.matches) els.sidebar.classList.remove('collapsed'); });
 
   // ----- info card -----
   let selected = null;
